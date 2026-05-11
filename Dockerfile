@@ -22,11 +22,13 @@ RUN if [ "$USE_CN_MIRROR" = "true" ]; then \
 # - ffmpeg: for video/audio processing
 # - fonts-noto-cjk: for CJK character support
 # - git: occasionally needed for pip installs from VCS sources
+# - libgl1: needed by some OpenCV/image processing dependencies
 RUN apt-get update && apt-get install -y \
     curl \
     ffmpeg \
     fonts-noto-cjk \
     git \
+    libgl1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Install uv package manager
